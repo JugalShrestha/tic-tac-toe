@@ -1,28 +1,16 @@
 
-//---------------------------Device Width Start-------------------------------------------------//
-
-// const body = document.querySelector('body')
-
-// //TO get exact width and height
-// var deviceWidth = window.innerWidth
-// var deviceHeight = window.innerHeight
-
-// body.style.width = deviceWidth+"px"
-// body.style.height = deviceHeight+"px"
-
-//---------------------------Device Width End-------------------------------------------------//
-
 //--VARIABLES
 const everything = document.querySelector('.everything')
 const idSelector = document.querySelectorAll('.id-option')
 var id
-var check = 0
-var indexCounter = 0
-var i, j
+let winConditions = [[0,1,2],[3,4,5],[6,7,8],  //Horizontal
+                    [0,4,8],[2,4,6],            //Diagonal
+                    [0,3,6],[1,4,7],[2,5,8]]    //Vertical
 let gameover = false
 const boxes = document.querySelectorAll('.box')
 const boxList = document.querySelector('.boxes')
 const idSelectorwhole = document.querySelector('.id-selector')
+const goAgain = document.querySelector('.play-again')
 const sign = document.querySelectorAll('.sign')
 const msg = document.querySelector('.text')
 
@@ -73,7 +61,6 @@ boxes.forEach(function(box,index){
         else
         box.setAttribute('data-id',id)
         id = box.getAttribute('data-id')
-        indexCounter++
 
         //Checks id
 
@@ -88,123 +75,58 @@ boxes.forEach(function(box,index){
 
         //Checks win eveytime the btn is clicked
 
-        winChecker(index)
+        winChecker()
 
     })
 })
 
 //Checks if one has won or not
-function winChecker(index){
-    var idChecker = 0
-    
-    //If Clicked on 1st Col--------------------------------------
-    if(boxes[index].getAttribute('data-col')==1)
-    {
 
-        //Horizontal check
-        
-        for(i=index;i<=index;i++)
-        {
-            for(j=i+1;j<=index+2;j++)
-            {
-                if(boxes[i].getAttribute('data-id') == boxes[j].getAttribute('data-id'))
-                {
-                    idChecker ++
-                }
-            }
-        }
-        if(idChecker==2)
-        {
-            idChecker = 0
-            msg.innerHTML = boxes[index].innerText+" won"
-            gameover = true
-        }
-
-        //Vertical Check
-
-        for(i=index;i<=index;i++)
-        {
-            idChecker = 0
-            console.log("i: "+i)
-            console.log("idChecker: "+idChecker)
+function winChecker(){
+    winConditions.forEach(condition =>{
+        if((boxes[condition[0]].getAttribute('data-id')== boxes[condition[1]].getAttribute('data-id'))&& (boxes[condition[0]].getAttribute('data-id') == boxes[condition[2]].getAttribute('data-id')) && boxes[condition[0]].getAttribute('data-id')!=null){
+            msg.innerHTML = boxes[condition[0]].innerHTML+" Won"
+            boxes[condition[0]].style.background = "var(--s1-color)"
+            boxes[condition[0]].style.color = "var(--p1-color)"
             
-            for(j=i+2;j<i+2;j++)
-            {
-                for(j=j+2;j<j;j++)
-                {
-                    if(boxes[i].getAttribute('data-id') == boxes[j].getAttribute('data-id'))
-                    {
-                        idChecker ++
-                    }
-                }
-            }
-        }
-        if(idChecker==2)
-        {
-            idChecker = 0
-            msg.innerHTML = boxes[index].innerText+" won"
+            boxes[condition[1]].style.background = "var(--s1-color)"
+            boxes[condition[1]].style.color = "var(--p1-color)"
+            
+            boxes[condition[2]].style.background = "var(--s1-color)"
+            boxes[condition[2]].style.color = "var(--p1-color)"
             gameover = true
+            finish()
         }
-    }
+    })
+}
 
-    //If Clicked on 2nd COl----------------------------------------------
+//Checks if Game is over or not
+function finish()
+{
+    gameover = false
+    boxList.style.pointerEvents = "none"
+    goAgain.style.opacity = "100%"
+    goAgain.style.zIndex = "1"
+    goAgain.addEventListener('click',reset)
+}
 
-    if(boxes[index].getAttribute('data-col')==2)
-    {
-        console.log("index: "+index)
-        console.log('id: '+boxes[index].getAttribute('data-id'))
-        //Horizontal check
-        for(i=index;i<=index;i++)
-        {
-            //For next box
-            for(j=i+1;j<=i+1;j++)
-            {
-                if(boxes[i].getAttribute('data-id') == boxes[j].getAttribute('data-id'))
-                {
-                    idChecker ++
-                }
-            }
-            //For prev box
-            for(j=i-1;j>=i-1;j--)
-            {
-                if(boxes[i].getAttribute('data-id') == boxes[j].getAttribute('data-id'))
-                {
-                    idChecker ++
-                }
-            }
-        }
-        if(idChecker==2)
-        {
-            msg.innerHTML = boxes[index].innerText+" won"
-            gameover = true 
-        }
-        //Vertical Check
-        //Diagonal Check
-    }
+//resets everything
 
-    //If Clicked on 3rd col--------------------------------------
-
-    if(boxes[index].getAttribute('data-col')==3)
-    {
-        //Horizontal check
-        for(i=index;i<=index;i++)
-        {
-            for(j=i-1;j>=index-2;j--)
-            {
-                if(boxes[i].getAttribute('data-id') == boxes[j].getAttribute('data-id'))
-                {
-                    idChecker ++
-                }
-            }
-        }
-        if(idChecker==2)
-        {
-            msg.innerHTML = boxes[index].innerText+" won"
-            gameover = true 
-        }
-        //Vertical Check
-        //Diagonal Check
-    }
+function reset(){
+    idSelectorwhole.style.display = "flex"
+    idSelectorwhole.style.pointerEvents = "all"
+    id = ""
+    boxList.style.display = "none"
+    boxList.style.pointerEvents = "all"
+    goAgain.style.opacity = "0"
+    goAgain.style.zIndex = "-1"
+    msg.innerHTML = ""
+    boxes.forEach(box=>{
+        box.setAttribute('data-id', null)
+        box.innerHTML = ""    
+        box.style.background = "var(--p1-color)"
+        box.style.color = "var(--s1-color)"
+    })
 }
 
 //---------------------------End of Main Part-------------------------------------------------//

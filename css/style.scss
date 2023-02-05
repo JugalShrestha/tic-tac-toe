@@ -31,6 +31,7 @@ body{
         // opacity: 0;
         //Start of field
         .field{
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -98,15 +99,40 @@ body{
                 //End of box
             }
             //End of boxes
+            //Start of Text
+            .text{
+                position: absolute;
+                bottom: -50%;
+                text-transform: uppercase;
+                font-size: 5vh;
+                font-family: var(--text);
+            }
+            //End of text
+            //Start of Play Again
+            .play-again{
+                opacity: 0;
+                z-index: -1;
+                position: absolute;
+                cursor: pointer;
+                transition: .2s ease-in-out;
+                padding: 1vh;
+                left: 50%;
+                transform: translate(-50%,50%);
+                top: -50%;
+                border-bottom: 1vh solid var(--s1-color);
+                text-transform: capitalize;
+                font-size: 2vh;
+                font-family: var(--text);
+                &:hover{
+                    background: var(--s1-color);
+                    color: var(--p1-color);
+                    border-bottom: none;
+                }
+            }
+            //end of Play Again
         }
         //End of field
-        //Start of Text
-        .text{
-            text-transform: uppercase;
-            font-size: 5vh;
-            font-family: var(--text);
-        }
-        //End of text
+    
     }
     //End of Everyhting
 }

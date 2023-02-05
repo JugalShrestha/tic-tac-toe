@@ -30,6 +30,7 @@ body .everything {
   gap: 5vh;
 }
 body .everything .field {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,8 +93,30 @@ body .everything .field .boxes .box {
 body .everything .field .boxes .box:hover {
   background-color: var(--s1-color);
 }
-body .everything .text {
+body .everything .field .text {
+  position: absolute;
+  bottom: -50%;
   text-transform: uppercase;
   font-size: 5vh;
   font-family: var(--text);
+}
+body .everything .field .play-again {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  padding: 1vh;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  top: -50%;
+  border-bottom: 1vh solid var(--s1-color);
+  text-transform: capitalize;
+  font-size: 2vh;
+  font-family: var(--text);
+}
+body .everything .field .play-again:hover {
+  background: var(--s1-color);
+  color: var(--p1-color);
+  border-bottom: none;
 }/*# sourceMappingURL=style.css.map */
