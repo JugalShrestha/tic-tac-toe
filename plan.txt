@@ -1,0 +1,25 @@
+Tic tac toe
+
+-make a field
+-make boxes with 3*3
+
+Functionality
+-Make a bot to calculate the move
+-Box will be listening to 'clicks' and when clicked id will be passed
+    - X = id = 0
+    - O = id = 1
+-If box++ == same id then win
+-IF box+2 == same id then win
+-If box+3 == same id then win
+
+How one wins? (EASY SOLUTION)
+    - if index 0,1,2 or 3,4,5 or 6,7,8 has same id
+    - if index 0,4,8 or 2,4,6 has same id
+    - if index 0,3,6 or 1,4,7 or 2,5,8 has same id
+ 
+Structure: 
+    1 2 3
+    | | |
+    0 1 2  -1
+    3 4 5  -2
+    6 7 8  -3

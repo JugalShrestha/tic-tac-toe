@@ -1,0 +1,112 @@
+:root{
+    --p1-color: black;
+    --s1-color: white;
+    --text-color: whitesmoke;
+    --text: 'Roboto', sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--text);
+    color: var(--text-color);
+}
+
+body{
+    //Start of Everything
+    width: 100%;
+    height: 100vh;
+    background: var(--p1-color);
+    .everything{
+        transition: .5s ease-in-out;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--p1-color);
+        gap: 5vh;
+        // opacity: 0;
+        //Start of field
+        .field{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //Start of id Selector
+            .id-selector{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2vh;
+                justify-content: center;
+                .header{
+                    width: 100%;
+                    text-align: center;
+                    font-size: 5vh;
+                    text-transform: capitalize;
+                    border-bottom: 1vh solid var(--s1-color);
+                }
+                .id-options{
+                    display: flex;
+                    align-items: center;
+                    gap: 2vh;
+                    justify-content: center;
+                    .id-option{
+                        transition: .2s ease-in-out;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 10vh;
+                        height: 10vh;
+                        padding: 1vh;
+                        border: none;
+                        outline: none;
+                        background: var(--p1-color);
+                        font-size: 5vh;
+                        &:hover{
+                            background: var(--s1-color);
+                            color: var(--p1-color);
+                        }
+                    }
+                }
+            }
+            //end of Id selector
+            //Start of boxes
+            .boxes{
+                gap: 1vh;
+                display: none;
+                grid-template-columns: auto auto auto;
+                background: var(--s1-color);
+                //Start of box
+                .box{
+                    cursor: pointer;
+                    transition: .2s ease-in-out;
+                    width: 10vh;
+                    height: 10vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--p1-color);
+                    font-size: 5vh;
+                    &:hover{
+                        background-color: var(--s1-color);
+                    }
+                }
+                //End of box
+            }
+            //End of boxes
+        }
+        //End of field
+        //Start of Text
+        .text{
+            text-transform: uppercase;
+            font-size: 5vh;
+            font-family: var(--text);
+        }
+        //End of text
+    }
+    //End of Everyhting
+}

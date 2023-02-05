@@ -1,0 +1,99 @@
+:root {
+  --p1-color: black;
+  --s1-color: white;
+  --text-color: whitesmoke;
+  --text: "Roboto", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--text);
+  color: var(--text-color);
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: var(--p1-color);
+}
+body .everything {
+  transition: 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--p1-color);
+  gap: 5vh;
+}
+body .everything .field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .everything .field .id-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  justify-content: center;
+}
+body .everything .field .id-selector .header {
+  width: 100%;
+  text-align: center;
+  font-size: 5vh;
+  text-transform: capitalize;
+  border-bottom: 1vh solid var(--s1-color);
+}
+body .everything .field .id-selector .id-options {
+  display: flex;
+  align-items: center;
+  gap: 2vh;
+  justify-content: center;
+}
+body .everything .field .id-selector .id-options .id-option {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vh;
+  height: 10vh;
+  padding: 1vh;
+  border: none;
+  outline: none;
+  background: var(--p1-color);
+  font-size: 5vh;
+}
+body .everything .field .id-selector .id-options .id-option:hover {
+  background: var(--s1-color);
+  color: var(--p1-color);
+}
+body .everything .field .boxes {
+  gap: 1vh;
+  display: none;
+  grid-template-columns: auto auto auto;
+  background: var(--s1-color);
+}
+body .everything .field .boxes .box {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  width: 10vh;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--p1-color);
+  font-size: 5vh;
+}
+body .everything .field .boxes .box:hover {
+  background-color: var(--s1-color);
+}
+body .everything .text {
+  text-transform: uppercase;
+  font-size: 5vh;
+  font-family: var(--text);
+}/*# sourceMappingURL=style.css.map */
