@@ -35,8 +35,39 @@ body .everything .field {
   align-items: center;
   justify-content: center;
 }
-body .everything .field .id-selector {
+body .everything .field .player-selector {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  justify-content: center;
+}
+body .everything .field .player-selector .player-options {
+  display: flex;
+  align-items: center;
+  gap: 2vh;
+  justify-content: center;
+  font-size: 1vh;
+}
+body .everything .field .player-selector .player-options .player-option {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vh;
+  height: 10vh;
+  padding: 1vh;
+  border: none;
+  outline: none;
+  background: var(--p1-color);
+  font-size: 5vh;
+}
+body .everything .field .player-selector .player-options .player-option:hover {
+  transform: translateY(-1vh);
+}
+body .everything .field .id-selector {
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: 2vh;
@@ -46,14 +77,14 @@ body .everything .field .id-selector .header {
   width: 100%;
   text-align: center;
   font-size: 5vh;
-  text-transform: capitalize;
-  border-bottom: 1vh solid var(--s1-color);
+  text-transform: uppercase;
 }
 body .everything .field .id-selector .id-options {
   display: flex;
   align-items: center;
   gap: 2vh;
   justify-content: center;
+  font-size: 1vh;
 }
 body .everything .field .id-selector .id-options .id-option {
   transition: 0.2s ease-in-out;
@@ -110,13 +141,10 @@ body .everything .field .play-again {
   left: 50%;
   transform: translate(-50%, 50%);
   top: -50%;
-  border-bottom: 1vh solid var(--s1-color);
   text-transform: capitalize;
   font-size: 2vh;
   font-family: var(--text);
 }
 body .everything .field .play-again:hover {
-  background: var(--s1-color);
-  color: var(--p1-color);
-  border-bottom: none;
+  transform: translate(-50%, 50%) scale(1.2);
 }/*# sourceMappingURL=style.css.map */

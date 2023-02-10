@@ -35,9 +35,44 @@ body{
             display: flex;
             align-items: center;
             justify-content: center;
+            
+            //Start of player Selector
+            .player-selector{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2vh;
+                justify-content: center;
+                .player-options{
+                    display: flex;
+                    align-items: center;
+                    gap: 2vh;
+                    justify-content: center;
+                    font-size: 1vh;
+                    .player-option{
+                        transition: .2s ease-in-out;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 10vh;
+                        height: 10vh;
+                        padding: 1vh;
+                        border: none;
+                        outline: none;
+                        background: var(--p1-color);
+                        font-size: 5vh;
+                        &:hover{
+                            transform: translateY(-1vh);
+                        }
+                    }
+                }
+            }
+            //End of player Selector
+            
             //Start of id Selector
             .id-selector{
-                display: flex;
+                display: none;
                 flex-direction: column;
                 align-items: center;
                 gap: 2vh;
@@ -46,14 +81,14 @@ body{
                     width: 100%;
                     text-align: center;
                     font-size: 5vh;
-                    text-transform: capitalize;
-                    border-bottom: 1vh solid var(--s1-color);
+                    text-transform: uppercase;
                 }
                 .id-options{
                     display: flex;
                     align-items: center;
                     gap: 2vh;
                     justify-content: center;
+                    font-size: 1vh;
                     .id-option{
                         transition: .2s ease-in-out;
                         cursor: pointer;
@@ -119,14 +154,11 @@ body{
                 left: 50%;
                 transform: translate(-50%,50%);
                 top: -50%;
-                border-bottom: 1vh solid var(--s1-color);
                 text-transform: capitalize;
                 font-size: 2vh;
                 font-family: var(--text);
                 &:hover{
-                    background: var(--s1-color);
-                    color: var(--p1-color);
-                    border-bottom: none;
+                    transform: translate(-50%,50%) scale(1.2);
                 }
             }
             //end of Play Again
